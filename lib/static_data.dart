@@ -1,9 +1,10 @@
 import 'dart:math';
 
-import 'package:driver_prototype/riders_list.dart';
+import 'package:driver_prototype/driver_booking/presentation/pages/drivers_list.dart';
+import 'package:driver_prototype/ride_booking/presentation/pages/recent_locations.dart';
 
-import 'airbnb_list_page.dart';
-import 'location_model.dart';
+import 'airbnb_model.dart';
+import 'airbnbs/presentation/pages/airbnb_list_page.dart';
 
 final List<String> airbnbImageList = [
   "https://images.pexels.com/photos/1428348/pexels-photo-1428348"
@@ -27,80 +28,80 @@ final List<String> airbnbImageList = [
   "https://images.pexels.com/photos/10877461/pexels-photo-10877461"
       ".jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
 ];
-final List<Property> airbnbProperties = [
-  Property(
+final List<AirbnbProperty> airbnbProperties = [
+  AirbnbProperty(
     title: 'Luxury Apartment',
     location: 'Eldoret',
     imageUrl: airbnbImageList[Random().nextInt(airbnbImageList.length)],
     price: 200,
   ),
-  Property(
+  AirbnbProperty(
     title: 'Beach House',
     location: 'Mombasa',
     imageUrl: airbnbImageList[Random().nextInt(airbnbImageList.length)],
     price: 300,
   ),
-  Property(
+  AirbnbProperty(
     title: 'Cozy Cabin',
     location: 'Kapsabet',
     imageUrl: airbnbImageList[Random().nextInt(airbnbImageList.length)],
     price: 150,
   ),
-  Property(
+  AirbnbProperty(
     title: 'Beachfront Villa',
     location: 'Mombasa',
     imageUrl: airbnbImageList[Random().nextInt(airbnbImageList.length)],
     price: 250,
   ),
-  Property(
+  AirbnbProperty(
     title: 'Safari Lodge',
     location: 'Maasai Mara',
     imageUrl: airbnbImageList[Random().nextInt(airbnbImageList.length)],
     price: 300,
   ),
-  Property(
+  AirbnbProperty(
     title: 'Mountain Cabin',
     location: 'Mount Kenya',
     imageUrl: airbnbImageList[Random().nextInt(airbnbImageList.length)],
     price: 150,
   ),
-  Property(
+  AirbnbProperty(
     title: 'City Apartment',
     location: 'Nairobi',
     imageUrl: airbnbImageList[Random().nextInt(airbnbImageList.length)],
     price: 200,
   ),
-  Property(
+  AirbnbProperty(
     title: 'Lake House',
     location: 'Lake Naivasha',
     imageUrl: airbnbImageList[Random().nextInt(airbnbImageList.length)],
     price: 180,
   ),
-  Property(
+  AirbnbProperty(
     title: 'Countryside Cottage',
     location: 'Nanyuki',
     imageUrl: airbnbImageList[Random().nextInt(airbnbImageList.length)],
     price: 120,
   ),
-  Property(
+  AirbnbProperty(
     title: 'Luxury Penthouse',
     location: 'Nairobi',
     imageUrl: airbnbImageList[Random().nextInt(airbnbImageList.length)],
     price: 400,
   ),
-  Property(
+  AirbnbProperty(
     title: 'Secluded Lodge',
     location: 'Tsavo National Park',
     imageUrl: airbnbImageList[Random().nextInt(airbnbImageList.length)],
     price: 280,
   ),
-  Property(
+  AirbnbProperty(
     title: 'Treehouse Retreat',
     location: 'Diani Beach',
     imageUrl: airbnbImageList[Random().nextInt(airbnbImageList.length)],
     price: 220,
   ),
-  Property(
+  AirbnbProperty(
     title: 'Rustic Farmhouse',
     location: 'Nakuru',
     imageUrl: airbnbImageList[Random().nextInt(airbnbImageList.length)],
@@ -108,65 +109,55 @@ final List<Property> airbnbProperties = [
   ),
 ];
 
-final List<Rider> riders = [
-  Rider(
+final List<Driver> drivers = [
+  Driver(
     name: 'Kipchoge Kipyego',
-    avatar:
-    driverProfilePictures[Random().nextInt(driverProfilePictures.length)],
+    avatar: driverProfilePictures[Random().nextInt(driverProfilePictures.length)],
     distance: 3.5,
   ),
-  Rider(
+  Driver(
     name: 'Chebet Talam',
-    avatar:
-    driverProfilePictures[Random().nextInt(driverProfilePictures.length)],
+    avatar: driverProfilePictures[Random().nextInt(driverProfilePictures.length)],
     distance: 2.8,
   ),
-  Rider(
+  Driver(
     name: 'Korir Maiyo',
-    avatar:
-    driverProfilePictures[Random().nextInt(driverProfilePictures.length)],
+    avatar: driverProfilePictures[Random().nextInt(driverProfilePictures.length)],
     distance: 4.2,
   ),
-  Rider(
+  Driver(
     name: 'Jepchirchir Cherono',
-    avatar:
-    driverProfilePictures[Random().nextInt(driverProfilePictures.length)],
+    avatar: driverProfilePictures[Random().nextInt(driverProfilePictures.length)],
     distance: 5.1,
   ),
-  Rider(
+  Driver(
     name: 'Kiptoo Saina',
-    avatar:
-    driverProfilePictures[Random().nextInt(driverProfilePictures.length)],
+    avatar: driverProfilePictures[Random().nextInt(driverProfilePictures.length)],
     distance: 3.9,
   ),
-  Rider(
+  Driver(
     name: 'Cherop Ngetich',
-    avatar:
-    driverProfilePictures[Random().nextInt(driverProfilePictures.length)],
+    avatar: driverProfilePictures[Random().nextInt(driverProfilePictures.length)],
     distance: 2.1,
   ),
-  Rider(
+  Driver(
     name: 'Koech Kibiwott',
-    avatar:
-    driverProfilePictures[Random().nextInt(driverProfilePictures.length)],
+    avatar: driverProfilePictures[Random().nextInt(driverProfilePictures.length)],
     distance: 4.5,
   ),
-  Rider(
+  Driver(
     name: 'Langat Kirui',
-    avatar:
-    driverProfilePictures[Random().nextInt(driverProfilePictures.length)],
+    avatar: driverProfilePictures[Random().nextInt(driverProfilePictures.length)],
     distance: 3.2,
   ),
-  Rider(
+  Driver(
     name: 'Kemboi Chumba',
-    avatar:
-    driverProfilePictures[Random().nextInt(driverProfilePictures.length)],
+    avatar: driverProfilePictures[Random().nextInt(driverProfilePictures.length)],
     distance: 4.9,
   ),
-  Rider(
+  Driver(
     name: 'Ruto Maritim',
-    avatar:
-    driverProfilePictures[Random().nextInt(driverProfilePictures.length)],
+    avatar: driverProfilePictures[Random().nextInt(driverProfilePictures.length)],
     distance: 2.6,
   ),
 ];
