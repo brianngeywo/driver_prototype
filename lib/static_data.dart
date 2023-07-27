@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:driver_prototype/driver_booking/presentation/pages/drivers_list.dart';
 import 'package:driver_prototype/ride_booking/presentation/pages/recent_locations.dart';
+import 'package:driver_prototype/ride_request_model.dart';
 
 import 'airbnb_model.dart';
 import 'airbnbs/presentation/pages/airbnb_list_page.dart';
@@ -253,5 +254,88 @@ List<Location> recentLocations = [
     rating: 4.5,
     carImage: 'assets/car-three-seater.png',
     plateNumber: 'STU 901',
+  ),
+];
+
+List<RideRequest> currentRideRequests = [
+  RideRequest(
+    id: '1',
+    pickupLocation: 'Action, Eldoret',
+    destination: 'Langas, Eldoret',
+    fare: 2000,
+    date: '2021-07-20',
+    time: '10:00',
+    status: 'Pending',
+    distance: 1.5,
+  ),
+  RideRequest(
+    id: '2',
+    pickupLocation: 'Hawai, Eldoret',
+    destination: 'Pioneer, Eldoret',
+    fare: 2000,
+    date: '2021-07-20',
+    time: '10:00',
+    status: 'Pending',
+    distance: 0.5,
+  ),
+  RideRequest(
+    id: '3',
+    pickupLocation: 'Kapsoya, Eldoret',
+    destination: 'Kapsoya, Eldoret',
+    fare: 2000,
+    date: '2021-07-20',
+    time: '10:00',
+    status: 'Pending',
+    distance: 5,
+  ),
+  RideRequest(
+    id: '4',
+    pickupLocation: 'Kapsoya, Eldoret',
+    destination: 'Kapsoya, Eldoret',
+    fare: 2000,
+    date: '2021-07-20',
+    time: '10:00',
+    status: 'Pending',
+    distance: 1.7,
+  ),
+  RideRequest(
+    id: '5',
+    pickupLocation: 'Kapsoya, Eldoret',
+    destination: 'Kapsoya, Eldoret',
+    fare: 2000,
+    date: '2021-07-20',
+    time: '10:00',
+    status: 'Pending',
+    distance: 2.5,
+  ),
+  RideRequest(
+    id: '6',
+    pickupLocation: 'Kapsoya, Eldoret',
+    destination: 'Kapsoya, Eldoret',
+    fare: 2000,
+    date: '2021-07-20',
+    time: '10:00',
+    status: 'Pending',
+    distance: 2.5,
+  ),
+  RideRequest(
+    id: '7',
+    pickupLocation: 'Kapsoya, Eldoret',
+    destination: 'Kapsoya, Eldoret',
+    fare: 2000,
+    date: '2021-07-20',
+    time: '10:00',
+    status: 'Pending',
+    distance: 1.5,
+  ),
+  RideRequest(
+    id: '8',
+    pickupLocation: 'Kapsoya, Eldoret',
+    destination: 'Kapsoya, Eldoret',
+    fare: 2000,
+    date: '2021-07-20',
+    time: '10:00',
+    status: 'Pending',
+    distance: 0.5,
   ),
 ];

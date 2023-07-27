@@ -10,6 +10,7 @@ import 'package:driver_prototype/static_data.dart';
 import 'package:remixicon/remixicon.dart';
 
 import 'airbnbs/presentation/pages/airbnb_list_page.dart';
+import 'all_ride_requests_screen.dart';
 import 'user_profile/presentation/pages/main_profile_page.dart';
 import 'ride_booking/presentation/pages/map_view.dart';
 
@@ -87,7 +88,8 @@ class HomeScreen extends StatelessWidget {
                           onTap: () {
                             Navigator.push(
                               context,
-                              CustomTransitions().bottomToUpSlideTransitionPageRouteBuilder(
+                              CustomTransitions()
+                                  .bottomToUpSlideTransitionPageRouteBuilder(
                                 ProfilePage(),
                               ),
                             );
@@ -219,7 +221,6 @@ class HomeScreen extends StatelessWidget {
                     ],
                   ),
                 ),
-
                 Container(
                   margin: const EdgeInsets.only(left: 8.0, right: 8.0),
                   child: Row(
@@ -270,23 +271,28 @@ class HomeScreen extends StatelessWidget {
                   ),
                 ),
                 Container(
-                  margin: const EdgeInsets.only(left: 8.0, top: 8.0, right: 8.0),
+                  margin: const EdgeInsets.only(left: 8.0, right: 8.0),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       const Text(
-                        'Available drivers',
+                        'Quick rides',
                         style: TextStyle(
-                          fontWeight: FontWeight.bold,
                           fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.blue,
                         ),
                       ),
                       TextButton(
                         onPressed: () {
-                          navigateToDriversPage(context);
+                          Navigator.push(
+                            context,
+                            CustomTransitions().rightToLeftSlideTransitionPageBuilder(
+                                const MainMapViewPage()),
+                          );
                         },
                         child: const Text(
-                          'View all',
+                          'View in map',
                           style: TextStyle(
                             color: Colors.blue,
                           ),
@@ -295,56 +301,32 @@ class HomeScreen extends StatelessWidget {
                     ],
                   ),
                 ),
-                SingleChildScrollView(
-                  scrollDirection: Axis.horizontal,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      carSelectionIndicator(
-                        context,
-                        "assets/car-three-seater.png",
-                        "Three Seater",
-                        "30 mins away",
-                        false,
-                      ),
-                      carSelectionIndicator(
-                        context,
-                        "assets/car-five-seater.png",
-                        "Five Seater",
-                        "10 mins away",
-                        false,
-                      ),
-                      carSelectionIndicator(
-                        context,
-                        "assets/car-seven-seater.png",
-                        "Seven Seater",
-                        "5 mins away",
-                        false,
-                      ),
-                      GestureDetector(
-                        onTap: () {
-                          Navigator.of(context).push(
-                            MaterialPageRoute(
-                              builder: (context) => NearbyDriversPage(),
-                            ),
-                          );
-                        },
-                        child: Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: CircleAvatar(
-                            backgroundColor: Colors.grey.shade200,
-                            radius: 30,
-                            child: const Center(
-                              child: Icon(
-                                size: 20,
-                                Icons.arrow_forward_outlined,
-                                color: Colors.black,
-                              ),
-                            ),
+                SizedBox(
+                  height: 90,
+                  child: Center(
+                    child: ListView.builder(
+                      shrinkWrap: true,
+                      scrollDirection: Axis.horizontal,
+                      itemCount: currentRideRequests.length,
+                      itemBuilder: (context, index) {
+                        currentRideRequests.sort(
+                            (first, second) => first.distance.compareTo(second.distance));
+                        var currentRide = currentRideRequests[index];
+                        var fare = currentRide.fare * 0.7;
+                        return GestureDetector(
+                          onTap: () {
+                            showDialog(
+                                context: context,
+                                builder: (context) => AcceptRideDialog());
+                          },
+                          child: CustomLocationCard(
+                            title: "Kshs ${fare.toString()}",
+                            imageUrl: "",
+                            location: currentRide.destination,
                           ),
-                        ),
-                      ),
-                    ],
+                        );
+                      },
+                    ),
                   ),
                 ),
                 Container(

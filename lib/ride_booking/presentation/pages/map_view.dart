@@ -1,8 +1,10 @@
+import 'package:driver_prototype/custom_animations.dart';
+import 'package:driver_prototype/static_data.dart';
 import 'package:flutter/material.dart';
 import 'package:driver_prototype/custom_drawer.dart';
-import 'package:driver_prototype/ride_booking/presentation/pages/drop_off_or_pickup_screen.dart';
 import 'package:remixicon/remixicon.dart';
 
+import '../../../all_ride_requests_screen.dart';
 import '../../../user_profile/presentation/pages/main_profile_page.dart';
 
 class MainMapViewPage extends StatelessWidget {
@@ -11,6 +13,31 @@ class MainMapViewPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: Container(
+        margin: const EdgeInsets.only(bottom: 10),
+        child: MaterialButton(
+          color: Colors.black,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10),
+          ),
+          onPressed: () {
+            Navigator.push(
+              context,
+              CustomTransitions()
+                  .rightToLeftSlideTransitionPageBuilder(const NearbyRideRequestsPage()),
+            );
+          },
+          child: const Padding(
+            padding: EdgeInsets.all(12.0),
+            child: Text(
+              "View all requests",
+              style: TextStyle(
+                color: Colors.white,
+              ),
+            ),
+          ),
+        ),
+      ),
       drawer: CustomDrawer(),
       body: Stack(
         children: <Widget>[
@@ -42,7 +69,7 @@ class MainMapViewPage extends StatelessWidget {
             ),
           ),
           const Positioned(
-            bottom: 200,
+            bottom: 270,
             right: 30,
             child: CircleAvatar(
               backgroundColor: Colors.white,
@@ -55,103 +82,134 @@ class MainMapViewPage extends StatelessWidget {
             ),
           ),
           Positioned(
-              bottom: 130,
-              left: 30,
-              right: 30,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Builder(builder: (context) {
-                    return GestureDetector(
-                      onTap: () => Scaffold.of(context).openDrawer(),
-                      child: const CircleAvatar(
-                        backgroundColor: Colors.white,
-                        radius: 23,
-                        child: Center(
-                          child: Padding(
-                            padding: EdgeInsets.all(8.0),
-                            child: Center(
-                              child: Icon(
-                                Remix.menu_4_fill,
-                                color: Colors.black,
-                                size: 27,
+            bottom: 190,
+            left: 30,
+            right: 30,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Builder(builder: (context) {
+                  return GestureDetector(
+                    onTap: () => Scaffold.of(context).openDrawer(),
+                    child: const CircleAvatar(
+                      backgroundColor: Colors.white,
+                      radius: 23,
+                      child: Center(
+                        child: Padding(
+                          padding: EdgeInsets.all(8.0),
+                          child: Center(
+                            child: Icon(
+                              Remix.menu_4_fill,
+                              color: Colors.black,
+                              size: 27,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  );
+                }),
+                Builder(builder: (context) {
+                  return GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => ProfilePage(),
+                        ),
+                      );
+                    },
+                    child: const CircleAvatar(
+                      radius: 25,
+                      backgroundImage: NetworkImage(
+                        'https://images.pexels'
+                        '.com/photos/91224/pexels-photo-91224'
+                        '.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+                      ),
+                    ),
+                  );
+                })
+              ],
+            ),
+          ),
+          Positioned(
+            bottom: 10,
+            left: 0,
+            right: 0,
+            // search text field
+            child: Center(
+              child: SizedBox(
+                height: 180, // Set a fixed height for the container
+                child: ListView.builder(
+                  shrinkWrap: true,
+                  scrollDirection: Axis.horizontal,
+                  itemCount: currentRideRequests.length,
+                  itemBuilder: (context, index) {
+                    currentRideRequests.sort(
+                        (first, second) => first.distance.compareTo(second.distance));
+                    var currentRide = currentRideRequests[index];
+                    var fare = currentRide.fare * 0.7;
+                    return Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: SizedBox(
+                        width: 250,
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: GestureDetector(
+                            onTap: () {
+                              showDialog(
+                                  context: context,
+                                  builder: (context) => AcceptRideDialog());
+                            },
+                            child: Card(
+                              elevation: 10,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                              child: Padding(
+                                padding: const EdgeInsets.all(12.0),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Row(
+                                      mainAxisAlignment: MainAxisAlignment.start,
+                                      children: [
+                                        const CircleAvatar(
+                                          radius: 13,
+                                          backgroundImage: NetworkImage(
+                                            'https://images.pexels'
+                                            '.com/photos/91224/pexels-photo-91224'
+                                            '.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+                                          ),
+                                        ),
+                                        const SizedBox(width: 20),
+                                        Text(
+                                          "Username $index",
+                                        ),
+                                      ],
+                                    ),
+                                    const SizedBox(height: 12.0),
+                                    Text(
+                                      "To: ${currentRide.destination}",
+                                    ),
+                                    const SizedBox(height: 12.0),
+                                    Text(
+                                      "Fare: Khs ${fare.toString()}",
+                                    ),
+                                    const SizedBox(height: 12.0),
+                                    Text(
+                                      "Distance: ${currentRide.distance} km",
+                                    ),
+                                  ],
+                                ),
                               ),
                             ),
                           ),
                         ),
                       ),
                     );
-                  }),
-                  Builder(builder: (context) {
-                    return GestureDetector(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => ProfilePage(),
-                          ),
-                        );
-                      },
-                      child: const CircleAvatar(
-                        radius: 25,
-                        backgroundImage: NetworkImage(
-                          'https://images.pexels'
-                          '.com/photos/91224/pexels-photo-91224'
-                          '.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-                        ),
-                      ),
-                    );
-                  })
-                ],
-              )),
-          Positioned(
-            bottom: 50,
-            left: 0,
-            right: 0,
-            //search text field
-            child: Center(
-              child: Container(
-                width: MediaQuery.of(context).size.width * 0.85,
-                height: 50,
-                margin: const EdgeInsets.symmetric(horizontal: 20),
-                padding: const EdgeInsets.symmetric(horizontal: 20),
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(30),
-                  boxShadow: const [
-                    BoxShadow(
-                      color: Colors.black12,
-                      offset: Offset(0, 10),
-                      blurRadius: 30,
-                    ),
-                  ],
-                ),
-                child: Row(
-                  children: <Widget>[
-                    Expanded(
-                      child: GestureDetector(
-                        onTap: () {
-                          showDropOffAndPickupTextFieldModalBottomSheet(context);
-                        },
-                        child: const TextField(
-                          enabled: false,
-                          decoration: InputDecoration(
-                            hintText: 'Where do you want to go?',
-                            border: InputBorder.none,
-                          ),
-                        ),
-                      ),
-                    ),
-                    GestureDetector(
-                      onTap: () {
-                        showDropOffAndPickupTextFieldModalBottomSheet(context);
-                      },
-                      child: const Icon(
-                        Icons.search,
-                        color: Colors.blue,
-                      ),
-                    ),
-                  ],
+                  },
                 ),
               ),
             ),

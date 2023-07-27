@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class CustomTransitions {
-  PageRouteBuilder bottomToUpSlideTransitionPageRouteBuilder(Widget page, BuildContext context) {
+  PageRouteBuilder bottomToUpSlideTransitionPageRouteBuilder(
+      Widget page, BuildContext context) {
     return PageRouteBuilder(
       pageBuilder: (context, animation, secondaryAnimation) => page,
       transitionsBuilder: (context, animation, secondaryAnimation, child) {
@@ -23,7 +24,7 @@ class CustomTransitions {
     );
   }
 
-  PageRouteBuilder rightToLeftSlideTransitionPageBuilder(Widget page, BuildContext context) {
+  PageRouteBuilder rightToLeftSlideTransitionPageBuilder(Widget page) {
     return PageRouteBuilder(
       pageBuilder: (context, animation, secondaryAnimation) => page,
       transitionsBuilder: (context, animation, secondaryAnimation, child) {
@@ -45,7 +46,7 @@ class CustomTransitions {
     );
   }
 
-  PageRouteBuilder leftToRightSlideTransitionPageBuilder(Widget page, BuildContext context) {
+  PageRouteBuilder leftToRightSlideTransitionPageBuilder(Widget page) {
     return PageRouteBuilder(
       pageBuilder: (context, animation, secondaryAnimation) => page,
       transitionsBuilder: (context, animation, secondaryAnimation, child) {
@@ -67,7 +68,7 @@ class CustomTransitions {
     );
   }
 
-  PageRouteBuilder topToBottomSlideTransitionPageBuilder(Widget page, BuildContext context) {
+  PageRouteBuilder topToBottomSlideTransitionPageBuilder(Widget page) {
     return PageRouteBuilder(
       pageBuilder: (context, animation, secondaryAnimation) => page,
       transitionsBuilder: (context, animation, secondaryAnimation, child) {
@@ -89,7 +90,7 @@ class CustomTransitions {
     );
   }
 
-  PageRouteBuilder scaleTransitionPageRouteBuilder(Widget page, BuildContext context) {
+  PageRouteBuilder scaleTransitionPageRouteBuilder(Widget page) {
     return PageRouteBuilder(
       pageBuilder: (context, animation, secondaryAnimation) => page,
       transitionsBuilder: (context, animation, secondaryAnimation, child) {
@@ -111,7 +112,7 @@ class CustomTransitions {
     );
   }
 
-  PageRouteBuilder fadeTransitionPageRouteBuilder(Widget page, BuildContext context) {
+  PageRouteBuilder fadeTransitionPageRouteBuilder(Widget page) {
     return PageRouteBuilder(
       pageBuilder: (context, animation, secondaryAnimation) => page,
       transitionsBuilder: (context, animation, secondaryAnimation, child) {
@@ -133,7 +134,7 @@ class CustomTransitions {
     );
   }
 
-  PageRouteBuilder rotateTransitionPageRouteBuilder(Widget page, BuildContext context) {
+  PageRouteBuilder rotateTransitionPageRouteBuilder(Widget page) {
     return PageRouteBuilder(
       pageBuilder: (context, animation, secondaryAnimation) => page,
       transitionsBuilder: (context, animation, secondaryAnimation, child) {
@@ -155,7 +156,7 @@ class CustomTransitions {
     );
   }
 
-  PageRouteBuilder sizeTransitionPageRouteBuilder(Widget page, BuildContext context) {
+  PageRouteBuilder sizeTransitionPageRouteBuilder(Widget page) {
     return PageRouteBuilder(
       pageBuilder: (context, animation, secondaryAnimation) => page,
       transitionsBuilder: (context, animation, secondaryAnimation, child) {
@@ -177,10 +178,11 @@ class CustomTransitions {
     );
   }
 
-  PageRouteBuilder slideTransitionPageRouteBuilder(Widget page, BuildContext context) {
+  PageRouteBuilder slideTransitionPageRouteBuilder(Widget page) {
     return PageRouteBuilder(
       pageBuilder: (context, animation, secondaryAnimation) => page,
-      transitionsBuilder: (context, animation, secondaryAnimation, child) => SlideTransition(
+      transitionsBuilder: (context, animation, secondaryAnimation, child) =>
+          SlideTransition(
         position: Tween<Offset>(
           begin: const Offset(0.0, 1.0),
           end: Offset.zero,

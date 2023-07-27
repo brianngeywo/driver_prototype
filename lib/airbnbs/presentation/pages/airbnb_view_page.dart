@@ -82,7 +82,7 @@ class _AirbnbViewPageState extends State<AirbnbViewPage> {
                       ),
                     ),
                   )
-                : FailedToLoadImageWidget(
+                : const FailedToLoadImageWidget(
                     height: 200,
                     width: double.infinity,
                   ),
@@ -93,7 +93,7 @@ class _AirbnbViewPageState extends State<AirbnbViewPage> {
                 children: [
                   Text(
                     widget.airbnbName,
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 24,
                       fontWeight: FontWeight.bold,
                     ),
@@ -166,7 +166,7 @@ Whether you're seeking a romantic getaway or a fun-filled family vacation, our b
                   const SizedBox(height: 10),
                   Text(
                     'Kshs ${widget.airbnbPrice} per night',
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 18,
                       color: Colors.green,
                       fontWeight: FontWeight.bold,
