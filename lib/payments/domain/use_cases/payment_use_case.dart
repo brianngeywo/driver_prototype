@@ -1,10 +1,7 @@
-class PaymentsUseCase {
+abstract class PaymentsUseCase {
   Future<void> addNewPaymentMethod() async {}
 
-  Future<List<Object>> getAllPaymentMethods() {
-    // TODO: implement getAllMpesaPaymentMethods
-    throw UnimplementedError();
-  }
+  Future<List<Object>> getAllPaymentMethods();
 
   Future<void> payForTrip() async {}
 

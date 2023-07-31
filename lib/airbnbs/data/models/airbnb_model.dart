@@ -1,10 +1,10 @@
-class AirbnbProperty {
+class RealEstateProperty {
   final String title;
   final String location;
   final String imageUrl;
   final int price;
 
-  AirbnbProperty({
+  RealEstateProperty({
     required this.title,
     required this.location,
     required this.imageUrl,

@@ -1,10 +1,7 @@
-import 'package:driver_prototype/custom_animations.dart';
-import 'package:driver_prototype/static_data.dart';
 import 'package:flutter/material.dart';
 import 'package:driver_prototype/custom_drawer.dart';
 import 'package:remixicon/remixicon.dart';
 
-import '../../../all_ride_requests_screen.dart';
 import '../../../user_profile/presentation/pages/main_profile_page.dart';
 
 class MainMapViewPage extends StatelessWidget {
@@ -13,31 +10,6 @@ class MainMapViewPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: Container(
-        margin: const EdgeInsets.only(bottom: 10),
-        child: MaterialButton(
-          color: Colors.black,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(10),
-          ),
-          onPressed: () {
-            Navigator.push(
-              context,
-              CustomTransitions()
-                  .rightToLeftSlideTransitionPageBuilder(const NearbyRideRequestsPage()),
-            );
-          },
-          child: const Padding(
-            padding: EdgeInsets.all(12.0),
-            child: Text(
-              "View all requests",
-              style: TextStyle(
-                color: Colors.white,
-              ),
-            ),
-          ),
-        ),
-      ),
       drawer: CustomDrawer(),
       body: Stack(
         children: <Widget>[
@@ -224,12 +196,12 @@ void showRiderRequestBottomSheet(BuildContext context) {
   showModalBottomSheet(
       context: context,
       builder: (BuildContext context) {
-        return ListTile(
+        return const ListTile(
           tileColor: Colors.white,
           leading: CircleAvatar(
             radius: 22,
             child: Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: EdgeInsets.all(8.0),
               child: Icon(
                 Remix.user_2_fill,
                 size: 14,

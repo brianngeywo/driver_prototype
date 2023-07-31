@@ -3,7 +3,8 @@ import 'package:driver_prototype/airbnbs/presentation/pages/airbnb_view_page.dar
 import 'package:driver_prototype/my_app_bar.dart';
 import 'package:driver_prototype/static_data.dart';
 
-import '../../../airbnb_model.dart';
+import '../../data/data_sources/local.dart';
+import '../../data/models/airbnb_model.dart';
 import '../../../animation_constants.dart';
 import '../../../failed_to_load_image_widget.dart';
 
@@ -39,7 +40,7 @@ class _AirbnbPropertyListPageState extends State<AirbnbPropertyListPage> {
       setState(() {
         // Append more drivers to the existing list
         print(airbnbProperties.length);
-        airbnbProperties.addAll(List<AirbnbProperty>.from(airbnbProperties));
+        airbnbProperties.addAll(List<RealEstateProperty>.from(airbnbProperties));
       });
     }
   }
@@ -53,10 +54,11 @@ class _AirbnbPropertyListPageState extends State<AirbnbPropertyListPage> {
         controller: _scrollController,
         itemCount: airbnbProperties.length,
         itemBuilder: (context, index) {
-          AirbnbProperty property = airbnbProperties[index];
+          RealEstateProperty property = airbnbProperties[index];
           return GestureDetector(
             onTap: () {
-              Navigator.of(context).push(CustomTransitions().rightToLeftSlideTransitionPageBuilder(
+              Navigator.of(context)
+                  .push(CustomTransitions().rightToLeftSlideTransitionPageBuilder(
                 AirbnbViewPage(
                   airbnbName: property.title,
                   airbnbLocation: property.location,

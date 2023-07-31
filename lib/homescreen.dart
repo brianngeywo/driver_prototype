@@ -9,6 +9,7 @@ import 'package:driver_prototype/ride_booking/presentation/pages/recent_location
 import 'package:driver_prototype/static_data.dart';
 import 'package:remixicon/remixicon.dart';
 
+import 'airbnbs/data/data_sources/local.dart';
 import 'airbnbs/presentation/pages/airbnb_list_page.dart';
 import 'all_ride_requests_screen.dart';
 import 'user_profile/presentation/pages/main_profile_page.dart';
