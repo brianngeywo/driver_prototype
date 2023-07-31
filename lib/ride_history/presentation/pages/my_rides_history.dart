@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:driver_prototype/my_app_bar.dart';
+import 'package:driver_prototype/reusable_widgets/my_app_bar.dart';
 
 class MyRidesHistory extends StatefulWidget {
   @override
@@ -191,8 +191,8 @@ class TripItemWidget extends StatelessWidget {
                     image: DecorationImage(
                       image: NetworkImage(
                         'https://images.pexels'
-                        '.com/photos/91224/pexels-photo-91224'
-                        '.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+                            '.com/photos/91224/pexels-photo-91224'
+                            '.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
                       ),
                       fit: BoxFit.cover,
                     ),

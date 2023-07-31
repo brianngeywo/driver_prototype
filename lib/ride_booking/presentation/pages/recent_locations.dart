@@ -1,8 +1,8 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:driver_prototype/my_app_bar.dart';
-import 'package:driver_prototype/static_data.dart';
+import 'package:driver_prototype/reusable_widgets/my_app_bar.dart';
+import 'package:driver_prototype/constants/static_data.dart';
 
 class RecentLocationsPage extends StatefulWidget {
   @override
@@ -61,9 +61,8 @@ class _RecentLocationsPageState extends State<RecentLocationsPage>
                         child: Text(
                           'Saved',
                           style: TextStyle(
-                            color: _tabController.index == 0
-                                ? Colors.white
-                                : Colors.black54,
+                            color:
+                                _tabController.index == 0 ? Colors.white : Colors.black54,
                           ),
                         ),
                       ),
@@ -91,9 +90,8 @@ class _RecentLocationsPageState extends State<RecentLocationsPage>
                         child: Text(
                           'Recent',
                           style: TextStyle(
-                            color: _tabController.index == 1
-                                ? Colors.white
-                                : Colors.black54,
+                            color:
+                                _tabController.index == 1 ? Colors.white : Colors.black54,
                           ),
                         ),
                       ),
@@ -111,8 +109,7 @@ class _RecentLocationsPageState extends State<RecentLocationsPage>
             itemBuilder: (context, index) {
               final location = recentLocations[index];
               return Card(
-                margin:
-                    const EdgeInsets.symmetric(horizontal: 15.0, vertical: 5.0),
+                margin: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 5.0),
                 elevation: 0.0,
                 child: Column(
                   children: [
@@ -127,8 +124,8 @@ class _RecentLocationsPageState extends State<RecentLocationsPage>
                               height: 60.0,
                               decoration: BoxDecoration(
                                 shape: BoxShape.rectangle,
-                                borderRadius: const BorderRadius.all(
-                                    Radius.circular(10.0)),
+                                borderRadius:
+                                    const BorderRadius.all(Radius.circular(10.0)),
                                 color: Colors.blue,
                                 image: DecorationImage(
                                   image: NetworkImage(
@@ -201,8 +198,7 @@ class _RecentLocationsPageState extends State<RecentLocationsPage>
                                 decoration: BoxDecoration(
                                   image: DecorationImage(
                                     image: AssetImage(
-                                      carImages[
-                                          Random().nextInt(carImages.length)],
+                                      carImages[Random().nextInt(carImages.length)],
                                     ),
                                     fit: BoxFit.contain,
                                   ),
@@ -221,8 +217,7 @@ class _RecentLocationsPageState extends State<RecentLocationsPage>
                       ],
                     ),
                     const Padding(
-                      padding:
-                          EdgeInsets.symmetric(horizontal: 8.0, vertical: 0),
+                      padding: EdgeInsets.symmetric(horizontal: 8.0, vertical: 0),
                       child: Divider(),
                     ),
                   ],

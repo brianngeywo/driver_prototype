@@ -1,11 +1,11 @@
 import 'dart:math';
 import 'package:driver_prototype/ride_booking/presentation/pages/recent_locations.dart';
-import 'package:driver_prototype/ride_request_model.dart';
+import 'package:driver_prototype/ride_booking/ride_request_model.dart';
 
-import 'airbnbs/data/data_sources/local.dart';
-import 'airbnbs/data/models/airbnb_model.dart';
-import 'authentication/data/models/driver_model.dart';
-import 'driver_booking/presentation/pages/drivers_list.dart';
+import '../airbnbs/data/data_sources/local.dart';
+import '../airbnbs/data/models/airbnb_model.dart';
+import '../authentication/data/models/driver_model.dart';
+import '../driver_booking/presentation/pages/drivers_list.dart';
 
 final List<Driver> drivers = [
   Driver(

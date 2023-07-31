@@ -1,17 +1,16 @@
+import 'package:driver_prototype/custom_animations.dart';
 import 'package:flutter/material.dart';
 import 'package:driver_prototype/airbnbs/presentation/pages/airbnb_view_page.dart';
-import 'package:driver_prototype/animation_constants.dart';
-import 'package:driver_prototype/custom_drawer.dart';
+import 'package:driver_prototype/general_screens/custom_drawer.dart';
 import 'package:driver_prototype/driver_booking/presentation/pages/drivers_list.dart';
 import 'package:driver_prototype/notifications/presentation/pages/notifications_screen.dart';
-import 'package:driver_prototype/ride_booking/presentation/pages/car_selection_indicator.dart';
 import 'package:driver_prototype/ride_booking/presentation/pages/recent_locations.dart';
-import 'package:driver_prototype/static_data.dart';
+import 'package:driver_prototype/constants/static_data.dart';
 import 'package:remixicon/remixicon.dart';
 
 import 'airbnbs/data/data_sources/local.dart';
 import 'airbnbs/presentation/pages/airbnb_list_page.dart';
-import 'all_ride_requests_screen.dart';
+import 'ride_booking/presentation/pages/all_ride_requests_screen.dart';
 import 'user_profile/presentation/pages/main_profile_page.dart';
 import 'ride_booking/presentation/pages/map_view.dart';
 
@@ -29,7 +28,7 @@ class HomeScreen extends StatelessWidget {
   void navigateToDriversPage(BuildContext context) {
     Navigator.of(context).push(
       CustomTransitions().bottomToUpSlideTransitionPageRouteBuilder(
-        NearbyDriversPage(),
+          NearbyDriversPage()
       ),
     );
   }
@@ -98,7 +97,7 @@ class HomeScreen extends StatelessWidget {
                             radius: 25,
                             backgroundImage: NetworkImage(
                               'https://images.pexels'
-                              '.com/photos/91224/pexels-photo-91224.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+                                  '.com/photos/91224/pexels-photo-91224.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
                             ),
                           ),
                         );
@@ -310,7 +309,8 @@ class HomeScreen extends StatelessWidget {
                       itemCount: currentRideRequests.length,
                       itemBuilder: (context, index) {
                         currentRideRequests.sort(
-                            (first, second) => first.distance.compareTo(second.distance));
+                                (first, second) =>
+                                first.distance.compareTo(second.distance));
                         var currentRide = currentRideRequests[index];
                         var fare = currentRide.fare * 0.7;
                         return GestureDetector(

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:driver_prototype/animation_constants.dart';
+import 'package:driver_prototype/constants/animation_constants.dart';
 import 'package:driver_prototype/authentication/presentation/controller/signup_controller.dart';
 import 'package:driver_prototype/authentication/presentation/pages/login.dart';
 import 'package:remixicon/remixicon.dart';
@@ -79,7 +79,8 @@ class SignUpScreen extends StatelessWidget {
                   onPressed: () {
                     // Perform sign up logic
                     signupController?.signUpWithEmailAndPassword('email', 'password');
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => const HomeScreen()));
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => const HomeScreen()));
                   },
                   child: const Text('Sign Up'),
                 ),

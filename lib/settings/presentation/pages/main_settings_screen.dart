@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:driver_prototype/my_app_bar.dart';
+import 'package:driver_prototype/reusable_widgets/my_app_bar.dart';
 import 'package:driver_prototype/payments/presentation/pages/payment_screen.dart';
 import 'package:driver_prototype/user_profile/presentation/pages/change_password_screen.dart';
 import 'package:driver_prototype/user_profile/presentation/pages/edit_profile_screen.dart';
 import 'package:driver_prototype/user_profile/presentation/pages/main_profile_page.dart';
 
-import 'language_selection/presentation/pages/language_screen_settings.dart';
-import 'notifications/presentation/pages/notification_settings_page.dart';
+import '../../../language_selection/presentation/pages/language_screen_settings.dart';
+import '../../../notifications/presentation/pages/notification_settings_page.dart';
 
 class MainSettingsScreen extends StatelessWidget {
   @override

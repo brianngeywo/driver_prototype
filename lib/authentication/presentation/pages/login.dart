@@ -4,7 +4,7 @@ import 'package:driver_prototype/authentication/presentation/pages/sign_up_scree
 import 'package:driver_prototype/authentication/presentation/pages/welcome_back_screen.dart';
 import 'package:remixicon/remixicon.dart';
 
-import '../../../animation_constants.dart';
+import '../../../constants/animation_constants.dart';
 
 class LoginScreen extends StatelessWidget {
   final SignInController? signInController;
@@ -83,7 +83,8 @@ class LoginScreen extends StatelessWidget {
                 ),
                 onPressed: () {
                   // Perform login logic
-                  signInController?.signInWithEmailAndPassword(emailController!.text, passwordController!.text);
+                  signInController?.signInWithEmailAndPassword(
+                      emailController!.text, passwordController!.text);
                   Navigator.push(
                       context,
                       MaterialPageRoute(

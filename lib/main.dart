@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:driver_prototype/loading_screen.dart';
+import 'package:driver_prototype/general_screens/loading_screen.dart';
 
 void main() {
   runApp(MaterialApp(

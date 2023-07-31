@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:driver_prototype/my_app_bar.dart';
+import 'package:driver_prototype/reusable_widgets/my_app_bar.dart';
 
 class AddCardPaymentMethodPage extends StatelessWidget {
   const AddCardPaymentMethodPage({super.key});
@@ -214,8 +214,7 @@ class _AddPaymentMethodPageState extends State<AddPaymentMethodPage> {
         context: context,
         builder: (context) {
           return AlertDialog(
-            shape:
-                RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
             title: const Text('Verification Process'),
             content: const Text(
               'The verification process has been initiated. 20 Ksh will be charged to your M-Pesa account. Please check your M-Pesa messages for further instructions.',

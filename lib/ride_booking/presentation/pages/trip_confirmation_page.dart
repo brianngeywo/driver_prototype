@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:driver_prototype/car_arrived_screen.dart';
+import 'package:driver_prototype/general_screens/car_arrived_screen.dart';
 import 'package:driver_prototype/ride_booking/presentation/pages/edit_ride.dart';
-import 'package:driver_prototype/you_arrived_bottom_modal.dart';
+import 'package:driver_prototype/general_screens/you_arrived_bottom_modal.dart';
 
 import '../../../ride_history/presentation/pages/my_rides_history.dart';
 
@@ -281,7 +281,8 @@ void showTripConfirmationDetailsModalBottomSheet(BuildContext context) {
                           context: context,
                           builder: (context) => AlertDialog(
                             title: const Text('Message Driver'),
-                            content: const Text('Are you sure you want to message the driver?'),
+                            content: const Text(
+                                'Are you sure you want to message the driver?'),
                             actions: [
                               TextButton(
                                 onPressed: () {
@@ -291,8 +292,8 @@ void showTripConfirmationDetailsModalBottomSheet(BuildContext context) {
                               ),
                               TextButton(
                                 onPressed: () {
-                                  Navigator.of(context)
-                                      .push(MaterialPageRoute(builder: (context) => DriverArrivedScreen()));
+                                  Navigator.of(context).push(MaterialPageRoute(
+                                      builder: (context) => DriverArrivedScreen()));
                                 },
                                 child: const Text('Message'),
                               ),
@@ -314,7 +315,8 @@ void showTripConfirmationDetailsModalBottomSheet(BuildContext context) {
                             context: context,
                             builder: (context) => AlertDialog(
                                   title: const Text('Call Driver'),
-                                  content: const Text('Are you sure you want to call the driver?'),
+                                  content: const Text(
+                                      'Are you sure you want to call the driver?'),
                                   actions: [
                                     TextButton(
                                       onPressed: () {
@@ -354,7 +356,8 @@ void showTripConfirmationDetailsModalBottomSheet(BuildContext context) {
                             builder: (context) => AlertDialog(
                               backgroundColor: Colors.white,
                               title: const Text('Cancel Ride'),
-                              content: const Text('Are you sure you want to cancel this ride?'),
+                              content: const Text(
+                                  'Are you sure you want to cancel this ride?'),
                               actions: [
                                 Padding(
                                   padding: const EdgeInsets.all(8.0),

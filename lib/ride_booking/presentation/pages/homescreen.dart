@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:driver_prototype/airbnbs/presentation/pages/airbnb_view_page.dart';
-import 'package:driver_prototype/custom_drawer.dart';
+import 'package:driver_prototype/general_screens/custom_drawer.dart';
 import 'package:driver_prototype/driver_booking/presentation/pages/drivers_list.dart';
 import 'package:driver_prototype/notifications/presentation/pages/notifications_screen.dart';
 import 'package:driver_prototype/ride_booking/presentation/pages/car_selection_indicator.dart';
 import 'package:driver_prototype/ride_booking/presentation/pages/recent_locations.dart';
-import 'package:driver_prototype/static_data.dart';
+import 'package:driver_prototype/constants/static_data.dart';
 import 'package:remixicon/remixicon.dart';
 
 import '../../../airbnbs/data/data_sources/local.dart';

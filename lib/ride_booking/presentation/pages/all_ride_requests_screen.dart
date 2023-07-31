@@ -1,9 +1,9 @@
 import 'dart:math';
 
-import 'package:driver_prototype/ride_request_model.dart';
+import 'package:driver_prototype/ride_booking/ride_request_model.dart';
 import 'package:flutter/material.dart';
-import 'package:driver_prototype/my_app_bar.dart';
-import 'package:driver_prototype/static_data.dart';
+import 'package:driver_prototype/reusable_widgets/my_app_bar.dart';
+import 'package:driver_prototype/constants/static_data.dart';
 
 class NearbyRideRequestsPage extends StatefulWidget {
   const NearbyRideRequestsPage({super.key});
@@ -88,7 +88,7 @@ class RideRequestCard extends StatelessWidget {
                       color: Colors.blue,
                       image: DecorationImage(
                         image: NetworkImage(driverProfilePictures[
-                            Random().nextInt(driverProfilePictures.length)]),
+                        Random().nextInt(driverProfilePictures.length)]),
                         fit: BoxFit.cover,
                       ),
                     ),

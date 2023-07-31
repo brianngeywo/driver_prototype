@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:driver_prototype/main_settings_screen.dart';
+import 'package:driver_prototype/settings/presentation/pages/main_settings_screen.dart';
 import 'package:driver_prototype/payments/presentation/pages/payment_screen.dart';
 import 'package:driver_prototype/ride_history/presentation/pages/my_rides_history.dart';
 import 'package:driver_prototype/user_profile/presentation/pages/edit_profile_screen.dart';
 import 'package:simple_icons/simple_icons.dart';
 
-import '../../../help_page.dart';
+import '../../../general_screens/help_page.dart';
 
 class ProfilePage extends StatefulWidget {
   @override

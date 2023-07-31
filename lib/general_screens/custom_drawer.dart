@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:driver_prototype/animation_constants.dart';
-import 'package:driver_prototype/emergency_contacts_screen.dart';
-import 'package:driver_prototype/main_settings_screen.dart';
+import 'package:driver_prototype/constants/animation_constants.dart';
+import 'package:driver_prototype/settings/presentation/pages/main_settings_screen.dart';
 import 'package:driver_prototype/notifications/presentation/pages/notifications_screen.dart';
 import 'package:driver_prototype/payments/presentation/pages/payment_screen.dart';
-import 'package:driver_prototype/promotions.dart';
+import 'package:driver_prototype/general_screens/promotions.dart';
 import 'package:driver_prototype/homescreen.dart';
 import 'package:driver_prototype/ride_booking/presentation/pages/recent_locations.dart';
 import 'package:driver_prototype/ride_history/presentation/pages/my_rides_history.dart';
 import 'package:driver_prototype/user_profile/presentation/pages/main_profile_page.dart';
+
+import 'emergency_contacts_screen.dart';
 
 class CustomDrawer extends StatelessWidget {
   @override

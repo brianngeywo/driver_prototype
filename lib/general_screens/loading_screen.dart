@@ -1,9 +1,9 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:driver_prototype/animation_constants.dart';
+import 'package:driver_prototype/constants/animation_constants.dart';
 
-import 'authentication/presentation/pages/welcome_screen.dart';
+import '../authentication/presentation/pages/welcome_screen.dart';
 
 class LoadingScreen extends StatefulWidget {
   const LoadingScreen({super.key});

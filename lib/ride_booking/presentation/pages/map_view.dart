@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:driver_prototype/custom_drawer.dart';
+import 'package:driver_prototype/general_screens/custom_drawer.dart';
 import 'package:remixicon/remixicon.dart';
 
 import '../../../user_profile/presentation/pages/main_profile_page.dart';

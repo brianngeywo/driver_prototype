@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:driver_prototype/airbnbs/presentation/pages/airbnb_view_page.dart';
-import 'package:driver_prototype/my_app_bar.dart';
-import 'package:driver_prototype/static_data.dart';
+import 'package:driver_prototype/reusable_widgets/my_app_bar.dart';
+import 'package:driver_prototype/constants/static_data.dart';
 
 import '../../data/data_sources/local.dart';
 import '../../data/models/airbnb_model.dart';
-import '../../../animation_constants.dart';
-import '../../../failed_to_load_image_widget.dart';
+import '../../../constants/animation_constants.dart';
+import '../../../reusable_widgets/failed_to_load_image_widget.dart';
 
 class AirbnbPropertyListPage extends StatefulWidget {
   const AirbnbPropertyListPage({super.key});
@@ -87,28 +87,28 @@ class _AirbnbPropertyListPageState extends State<AirbnbPropertyListPage> {
                   children: [
                     property.imageUrl.isNotEmpty
                         ? ClipRRect(
-                            borderRadius: const BorderRadius.only(
-                              topLeft: Radius.circular(10),
-                              topRight: Radius.circular(10),
+                      borderRadius: const BorderRadius.only(
+                        topLeft: Radius.circular(10),
+                        topRight: Radius.circular(10),
+                      ),
+                      child: Container(
+                        width: double.infinity,
+                        height: 150,
+                        decoration: BoxDecoration(
+                          color: Colors.grey[300],
+                          image: DecorationImage(
+                            image: NetworkImage(
+                              property.imageUrl,
                             ),
-                            child: Container(
-                              width: double.infinity,
-                              height: 150,
-                              decoration: BoxDecoration(
-                                color: Colors.grey[300],
-                                image: DecorationImage(
-                                  image: NetworkImage(
-                                    property.imageUrl,
-                                  ),
-                                  fit: BoxFit.cover,
-                                ),
-                              ),
-                            ),
-                          )
-                        : const FailedToLoadImageWidget(
-                            height: 150,
-                            width: double.infinity,
+                            fit: BoxFit.cover,
                           ),
+                        ),
+                      ),
+                    )
+                        : const FailedToLoadImageWidget(
+                      height: 150,
+                      width: double.infinity,
+                    ),
                     Padding(
                       padding: const EdgeInsets.all(10),
                       child: Column(

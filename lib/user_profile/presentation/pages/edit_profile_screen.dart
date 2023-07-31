@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:driver_prototype/my_app_bar.dart';
+import 'package:driver_prototype/reusable_widgets/my_app_bar.dart';
 
 import 'main_profile_page.dart';
 

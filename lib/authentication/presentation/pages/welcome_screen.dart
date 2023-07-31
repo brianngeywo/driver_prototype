@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:driver_prototype/animation_constants.dart';
+import 'package:driver_prototype/constants/animation_constants.dart';
 import 'package:driver_prototype/authentication/presentation/pages/login.dart';
 import 'package:driver_prototype/authentication/presentation/pages/sign_up_screen.dart';
 
