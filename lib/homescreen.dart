@@ -88,8 +88,7 @@ class HomeScreen extends StatelessWidget {
                           onTap: () {
                             Navigator.push(
                               context,
-                              CustomTransitions()
-                                  .bottomToUpSlideTransitionPageRouteBuilder(
+                              CustomTransitions().slideTransitionPageRouteBuilder(
                                 ProfilePage(),
                               ),
                             );
@@ -221,55 +220,55 @@ class HomeScreen extends StatelessWidget {
                     ],
                   ),
                 ),
-                Container(
-                  margin: const EdgeInsets.only(left: 8.0, right: 8.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      const Text(
-                        'Where to?',
-                        style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      TextButton(
-                        onPressed: () {
-                          navigateToSavedLocationsPage(context);
-                        },
-                        child: const Text(
-                          'Manage',
-                          style: TextStyle(
-                            color: Colors.blue,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                const SingleChildScrollView(
-                  scrollDirection: Axis.horizontal,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      CustomLocationCard(
-                        title: "Home",
-                        imageUrl: "assets/house.png",
-                        location: "123 Road, Town",
-                      ),
-                      CustomLocationCard(
-                        title: "Office",
-                        imageUrl: "assets/office.png",
-                        location: "123 Road, Town",
-                      ),
-                      CustomLocationCard(
-                        title: "Restaurant",
-                        imageUrl: "assets/food.png",
-                        location: "123 Road, Town",
-                      )
-                    ],
-                  ),
-                ),
+                // Container(
+                //   margin: const EdgeInsets.only(left: 8.0, right: 8.0),
+                //   child: Row(
+                //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                //     children: [
+                //       const Text(
+                //         'Where to?',
+                //         style: TextStyle(
+                //           fontSize: 16,
+                //           fontWeight: FontWeight.bold,
+                //         ),
+                //       ),
+                //       TextButton(
+                //         onPressed: () {
+                //           navigateToSavedLocationsPage(context);
+                //         },
+                //         child: const Text(
+                //           'Manage',
+                //           style: TextStyle(
+                //             color: Colors.blue,
+                //           ),
+                //         ),
+                //       ),
+                //     ],
+                //   ),
+                // ),
+                // const SingleChildScrollView(
+                //   scrollDirection: Axis.horizontal,
+                //   child: Row(
+                //     mainAxisAlignment: MainAxisAlignment.start,
+                //     children: [
+                //       CustomLocationCard(
+                //         title: "Home",
+                //         imageUrl: "assets/house.png",
+                //         location: "123 Road, Town",
+                //       ),
+                //       CustomLocationCard(
+                //         title: "Office",
+                //         imageUrl: "assets/office.png",
+                //         location: "123 Road, Town",
+                //       ),
+                //       CustomLocationCard(
+                //         title: "Restaurant",
+                //         imageUrl: "assets/food.png",
+                //         location: "123 Road, Town",
+                //       )
+                //     ],
+                //   ),
+                // ),
                 Container(
                   margin: const EdgeInsets.only(left: 8.0, right: 8.0),
                   child: Row(
@@ -280,7 +279,7 @@ class HomeScreen extends StatelessWidget {
                         style: TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
-                          color: Colors.blue,
+                          // color: Colors.blue,
                         ),
                       ),
                       TextButton(
@@ -542,7 +541,7 @@ class CustomLocationCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(10),
       ),
       child: Container(
-        width: 120,
+        width: 130,
         padding: const EdgeInsets.symmetric(vertical: 10),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,

@@ -58,7 +58,7 @@ class _MyRidesHistoryState extends State<MyRidesHistory>
                         child: Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: Text(
-                            'Upcoming',
+                            'On Going',
                             style: TextStyle(
                               color: _tabController.index == 0
                                   ? Colors.white

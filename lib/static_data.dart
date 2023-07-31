@@ -1,11 +1,10 @@
 import 'dart:math';
-
-import 'package:driver_prototype/driver_booking/presentation/pages/drivers_list.dart';
 import 'package:driver_prototype/ride_booking/presentation/pages/recent_locations.dart';
 import 'package:driver_prototype/ride_request_model.dart';
 
 import 'airbnb_model.dart';
-import 'airbnbs/presentation/pages/airbnb_list_page.dart';
+import 'authentication/data/models/driver_model.dart';
+import 'driver_booking/presentation/pages/drivers_list.dart';
 
 final List<String> airbnbImageList = [
   "https://images.pexels.com/photos/1428348/pexels-photo-1428348"
@@ -339,3 +338,12 @@ List<RideRequest> currentRideRequests = [
     distance: 0.5,
   ),
 ];
+
+DriverModel loggedInUser = DriverModel(
+  id: '21321',
+  name: 'Emmanuel Kiptoo',
+  email: 'kiptooo@email.com',
+  image: driverProfilePictures[Random().nextInt(driverProfilePictures.length)],
+  password: 'password',
+  phone: '+254 798 767 470',
+);

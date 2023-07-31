@@ -19,31 +19,32 @@ class _LoadingScreenState extends State<LoadingScreen> {
     Timer(const Duration(seconds: 5), () {
       Navigator.pushReplacement(
         context,
-        CustomTransitions().rightToLeftSlideTransitionPageBuilder(InitialWelcomeScreen()),
+        CustomTransitions()
+            .rightToLeftSlideTransitionPageBuilder(const InitialWelcomeScreen()),
       );
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Container(
+            SizedBox(
               height: 200,
               width: 200,
-              child: const Image(
+              child: Image(
                 image: AssetImage('assets/logo.png'),
               ),
             ),
-            const CircularProgressIndicator(
+            CircularProgressIndicator(
               color: Colors.black,
             ),
-            const SizedBox(height: 22),
-            const Text(
+            SizedBox(height: 22),
+            Text(
               'Loading...',
               style: TextStyle(fontSize: 16),
             ),

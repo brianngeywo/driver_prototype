@@ -20,6 +20,62 @@ class PaymentScreen extends StatelessWidget {
         padding: const EdgeInsets.all(10.0),
         child: ListView(
           children: [
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                CircleAvatar(
+                  backgroundColor: Colors.grey.shade200,
+                  radius: 50,
+                  child: const Padding(
+                    padding: EdgeInsets.all(8.0),
+                    child: Text(
+                      'EK',
+                      style: TextStyle(
+                        fontSize: 35,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 16.0),
+                const Text(
+                  'Erick Kipkoech',
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+                SizedBox(height: 8.0),
+                const Text(
+                  "0798767470",
+                  style: TextStyle(
+                    // fontSize: 18,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+                const SizedBox(height: 8.0),
+                Card(
+                  elevation: 0.0,
+                  margin: const EdgeInsets.all(8.0),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  // color: Colors.grey[200],
+                  child: const Padding(
+                    padding: EdgeInsets.all(16.0),
+                    child: Text(
+                      'Balance Ksh. 120,000',
+                      style: TextStyle(
+                        fontSize: 21,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            const Divider(),
             const Text(
               'Payment Methods',
               style: TextStyle(
@@ -53,9 +109,9 @@ class PaymentScreen extends StatelessWidget {
             ListTile(
               textColor: Colors.blue,
               iconColor: Colors.blue,
-              leading: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: const Icon(
+              leading: const Padding(
+                padding: EdgeInsets.all(8.0),
+                child: Icon(
                   Icons.add,
                   weight: 20,
                 ),
@@ -76,48 +132,98 @@ class PaymentScreen extends StatelessWidget {
             ),
             const Divider(),
             const SizedBox(height: 16.0),
-            const Text(
-              'Billing History (Last 30 Days)',
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
+            const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 12.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    'Transaction History (Last 30 days)',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  Text(
+                    'View all',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: Colors.blue,
+                    ),
+                  ),
+                ],
               ),
             ),
             const SizedBox(height: 16.0),
-            ListTile(
-              iconColor: Colors.black,
-              tileColor: Colors.white,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(10),
-              ),
-              leading: const Padding(
-                padding: EdgeInsets.all(8.0),
-                child: Icon(Icons.history),
-              ),
-              title: const Text('M-Pesa - July 1, 2023'),
-              subtitle: const Text('Kshs 1050.50'),
-              onTap: () {
-                // Handle viewing the details of this transaction
-              },
+            const PaymentTransactionHistoryListTile(
+              false,
+              'Brian Opicho',
+              '21st June, 2023',
+              '- Ksh. 900',
             ),
             const Divider(),
-            ListTile(
-              iconColor: Colors.black,
-              tileColor: Colors.white,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(10),
-              ),
-              leading: const Padding(
-                padding: EdgeInsets.all(8.0),
-                child: Icon(Icons.history),
-              ),
-              title: const Text('M-Pesa - June 28, 2023'),
-              subtitle: const Text('Kshs 750.75'),
-              onTap: () {
-                // Handle viewing the details of this transaction
-              },
+            const PaymentTransactionHistoryListTile(
+              true,
+              'Brian Opicho',
+              '21st June, 2023',
+              '+ Ksh. 500',
             ),
             const Divider(),
-            // Add more billing history items he
+            const PaymentTransactionHistoryListTile(
+              false,
+              'Brian Opicho',
+              '21st June, 2023',
+              '- Ksh. 1000',
+            ),
+            const Divider(),
+            const PaymentTransactionHistoryListTile(
+              true,
+              'Brian Opicho',
+              '21st June, 2023',
+              '+ Ksh. 1200',
+            ),
+            const Divider(),
+            const PaymentTransactionHistoryListTile(
+              false,
+              'Brian Opicho',
+              '21st June, 2023',
+              '- Ksh. 800',
+            ),
+            const Divider(),
+            const PaymentTransactionHistoryListTile(
+              true,
+              'Brian Opicho',
+              '21st June, 2023',
+              '+ Ksh. 1000',
+            ),
+            const Divider(),
+            const PaymentTransactionHistoryListTile(
+              false,
+              'Brian Opicho',
+              '21st June, 2023',
+              '- Ksh. 900',
+            ),
+            const Divider(),
+            const PaymentTransactionHistoryListTile(
+              true,
+              'Brian Opicho',
+              '21st June, 2023',
+              '+ Ksh. 500',
+            ),
+            const Divider(),
+            const PaymentTransactionHistoryListTile(
+              false,
+              'Brian Opicho',
+              '21st June, 2023',
+              '- Ksh. 1000',
+            ),
+            const Divider(),
+            const PaymentTransactionHistoryListTile(
+              true,
+              'Brian Opicho',
+              '21st June, 2023',
+              '+ Ksh. 1200',
+            ),
+            const Divider(),
           ],
         ),
       ),
@@ -185,4 +291,46 @@ class PaymentScreen extends StatelessWidget {
 //     );
 //   }
 // }
+}
+
+class PaymentTransactionHistoryListTile extends ListTile {
+  final bool isDeposit;
+  final String name;
+  final String date;
+  final String amount;
+
+  const PaymentTransactionHistoryListTile(
+      this.isDeposit, this.name, this.date, this.amount,
+      {super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return ListTile(
+      iconColor: Colors.black,
+      tileColor: Colors.white,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(10),
+      ),
+      leading: const CircleAvatar(
+        backgroundColor: Colors.green,
+        child: Icon(
+          Icons.phone_android,
+          color: Colors.white,
+        ),
+      ),
+      title: Text(name),
+      subtitle: Text(date),
+      trailing: Text(
+        amount,
+        style: TextStyle(
+          fontWeight: FontWeight.w500,
+          color: isDeposit ? Colors.green : Colors.black,
+          fontSize: 18,
+        ),
+      ),
+      onTap: () {
+        // Handle viewing the details of this transaction
+      },
+    );
+  }
 }
